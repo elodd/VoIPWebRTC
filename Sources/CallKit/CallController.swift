@@ -6,11 +6,15 @@ final class CallController {
     
     func startCall(handle:String)->UUID {
         let id=UUID();
-        controller.request(CXTransaction(action: CXStartCallAction(call: id, handle: CXHandle(type: .generic, value: handle))));
+        Task {
+            try? await controller.request(CXTransaction(action: CXStartCallAction(call: id, handle: CXHandle(type: .generic, value: handle))));
+        }
         return id
     }
     
     func endCall(uuid:UUID) {
-        controller.request(CXTransaction(action: CXEndCallAction(call: uuid)))
+        Task {
+            try? await controller.request(CXTransaction(action: CXEndCallAction(call: uuid)));
+        }
     }
 }

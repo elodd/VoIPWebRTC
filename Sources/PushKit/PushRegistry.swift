@@ -1,5 +1,6 @@
 import PushKit
 
+@MainActor
 final class PushRegistry: NSObject, PKPushRegistryDelegate {
     static let shared = PushRegistry();
     let rtcVM = WebRTCViewModel();
@@ -14,5 +15,13 @@ final class PushRegistry: NSObject, PKPushRegistryDelegate {
         let uuid = UUID();
         CallProvider.shared.reportIncoming(uuid: uuid, handle: "Incoming");
         rtcVM.prepareIncomingCall(uuid: uuid); completion()
+    }
+
+    func pushRegistry(
+        _ registry: PKPushRegistry,
+        didUpdate pushCredentials: PKPushCredentials,
+        for type: PKPushType
+    ) {
+        // Handle updated push credentials if needed
     }
 }

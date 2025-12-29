@@ -25,7 +25,11 @@ final class CallProvider: NSObject, CXProviderDelegate {
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         AudioSessionManager.shared.activate();
-        WebRTCClient.shared.startAudio();
+#if targetEnvironment(simulator)
+        print("WebRTC disabled on simulator")
+#else
+        WebRTCClient.shared.startAudio()
+#endif
         action.fulfill()
     }
     

@@ -5,7 +5,7 @@ final class AudioSessionManager {
 
     func activate(){
         let s = AVAudioSession.sharedInstance()
-        try? s.setCategory(.playAndRecord, mode:.voiceChat, options:[.allowBluetooth,.defaultToSpeaker])
+        try? s.setCategory(.playAndRecord, mode:.voiceChat, options:[.allowBluetooth, .defaultToSpeaker])
         try? s.setActive(true)
     }
 

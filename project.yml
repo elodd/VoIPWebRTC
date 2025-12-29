@@ -1,11 +1,12 @@
 name: VoIPWebRTC
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.eloddobos
 targets:
   VoIPWebRTC:
     type: application
     platform: iOS
     deploymentTarget: "16.0"
+    bundleId: com.eloddobos.VoIPWebRTC
     sources:
       - Sources/App
       - Sources/UI
