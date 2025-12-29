@@ -7,13 +7,13 @@ targets:
     platform: iOS
     deploymentTarget: "16.0"
     sources:
-      - App
-      - UI
-      - Call
-      - CallKit
-      - PushKit
-      - Audio
-      - WebRTC
+      - Sources/App
+      - Sources/UI
+      - Sources/Call
+      - Sources/CallKit
+      - Sources/PushKit
+      - Sources/Audio
+      - Sources/WebRTC
     settings:
       base:
         INFOPLIST_FILE: Info.plist
