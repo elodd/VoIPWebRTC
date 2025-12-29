@@ -1,0 +1,27 @@
+name: VoIPWebRTC
+options:
+  bundleIdPrefix: com.example
+targets:
+  VoIPWebRTC:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - App
+      - UI
+      - Call
+      - CallKit
+      - PushKit
+      - Audio
+      - WebRTC
+    settings:
+      base:
+        INFOPLIST_FILE: Info.plist
+    entitlements:
+      path: VoIPWebRTC.entitlements
+    dependencies:
+      - package: WebRTC
+packages:
+  WebRTC:
+    url: https://github.com/stasel/WebRTC
+    branch: 141.0.0
